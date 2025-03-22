@@ -21,6 +21,8 @@ app.add_middleware(
 )
 
 app.include_router(auth_router, prefix = "/auth")
+app.include_router(repo_router, prefix = "/repo")
+app.include_router(org, prefix = "/org")
 
 
 if __name__ == "__main__":
