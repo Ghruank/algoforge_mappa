@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from routes.authRoute import router as auth_router
 from routes.repoRoute import router as repo_router
 from routes.org import router as org
+from routes.allRepos import router as arepo_router
 
 load_dotenv()
 
@@ -23,6 +24,8 @@ app.add_middleware(
 app.include_router(auth_router, prefix = "/auth")
 app.include_router(repo_router, prefix = "/repo")
 app.include_router(org, prefix = "/org")
+app.include_router(arepo_router, prefix = "/repo")
+
 
 
 if __name__ == "__main__":
