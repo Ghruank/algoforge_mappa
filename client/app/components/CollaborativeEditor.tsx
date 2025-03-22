@@ -16,7 +16,7 @@ import { createNewRoom } from "../editor/Room";
 import Cookies from "js-cookie";
 import dynamic from "next/dynamic";
 import { Octokit } from "@octokit/rest";
-// const MergeEditor = dynamic(() => import("../merge-editor/page"), { ssr: false });
+const MergeEditor = dynamic(() => import("../merge-editor/page"), { ssr: false });
 
 const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN || "";
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
