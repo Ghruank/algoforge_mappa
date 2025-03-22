@@ -4,3 +4,7 @@ from routes.repoRoute import router as repo_router
 from routes.allRepos import router as arepo_router
 from routes.scheduleRoute import router as schedule_router
 from routes.chatRoute import router as chat_router
+from routes.roomRoute import router as room_router
+from routes.accessRoute import router as access_router
+from routes.addCollab import router as addCollab_router
+from routes.versionRoute import router as version_router
