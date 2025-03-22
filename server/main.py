@@ -4,6 +4,8 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from routes.authRoute import router as auth_router
+from routes.repoRoute import router as repo_router
+from routes.org import router as org
 
 load_dotenv()
 
