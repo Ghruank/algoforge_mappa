@@ -9,13 +9,13 @@ export default function Editor(
   console.log("Editor", activeTab);
   console.log("Editor", tabs);
 
-  // dummy data
-  tabs = [
-    { id: "welcome", name: "Welcome!!" },
-  ]
-  activeTab = "welcome";
-  setTabs = () => {};
-  setActiveTab = () => {};
+  // // dummy data
+  // tabs = [
+  //   { id: "welcome", name: "Welcome!!" },
+  // ]
+  // activeTab = "welcome";
+  // setTabs = () => {};
+  // setActiveTab = () => {};
 
   return (
     <div className="divmain">

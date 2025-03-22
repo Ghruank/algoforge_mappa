@@ -5,8 +5,8 @@ import Comments from "./Comments"; // Adjust the import path as needed
 import { LiveblocksUIConfig } from "@liveblocks/react-ui";
 import Cookies from "js-cookie";
 import React, { useState } from 'react';
-// import Chatbot from '../chatbot/page';
-// import Meet from '../meet/page'; // Import the Meet component
+import Chatbot from '../chatbot/page';
+import Meet from '../meet/page'; // Import the Meet component
 import { FaComments, FaRobot, FaVideo } from 'react-icons/fa'; // Import icons
 
 export default function CommentsPage({ roomId="global" }) {
