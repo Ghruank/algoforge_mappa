@@ -300,6 +300,18 @@ export function CollaborativeEditor({ tabs, setTabs, activeTab, setActiveTab }) 
         basicSetup,
         javascript(),
         yCollab(ytext, provider.awareness),
+        EditorView.theme({
+          "&": {
+            height: "100%",
+            overflow: "auto"
+          },
+          ".cm-scroller": {
+            overflow: "auto"
+          },
+          ".cm-content": {
+            minHeight: "100%"
+          }
+        }),
         EditorView.domEventHandlers({
           keydown: (event) => {
             // Only prevent Tab when Ctrl/Cmd is pressed
