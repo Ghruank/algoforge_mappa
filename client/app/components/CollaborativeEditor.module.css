@@ -90,6 +90,7 @@
   height: calc(100vh - 120px); /* Adjust based on your header and other UI elements */
   overflow: hidden;
   position: relative;
+  transition: height 0.3s ease-in-out;
 }
 
 .modal {
@@ -132,4 +133,14 @@
 
 .modalContent button:hover {
   background-color: #c53030;
+}
+
+.inlineTerminalWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #1e1e1e;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
 }
