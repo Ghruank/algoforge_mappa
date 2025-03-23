@@ -185,17 +185,20 @@ export function CollaborativeEditor({ tabs, setTabs, activeTab, setActiveTab }) 
 
   // Clean up ydoc when tab is closed
   const handleTabClose = (id: string) => {
-    if (tabs.length > 1) {
+    if (tabs.length >= 1) {
       const ydoc = ydocsRef.current.get(id);
       if (ydoc) {
         ydoc.destroy();
         ydocsRef.current.delete(id);
       }
       setTabs(tabs.filter((tab) => tab.id !== id));
-      if (activeTab === id) {
-        setActiveTab(tabs[0].id);
-      }
     }
+    if (tabs.length > 1 && activeTab === id) {
+      setActiveTab(tabs[0].id);
+    }
+    // else if (tabs.length === 1) {
+    //   setActive(null);
+    // }
   };
 
   // Function to switch to the next tab

@@ -27,9 +27,12 @@ const Page = ({ room, repoName, tabs, setTabs, setActiveTab }) => {
   }
 
   const addfile = (entry) => {
-    // console.log(entry);
-    // console.log(tabs);
-    // console.log([...tabs, entry]);
+    // Check for duplicate entry
+    const isDuplicate = tabs.some(tab => tab.id === entry.id);
+    if (isDuplicate) {
+      setActiveTab(entry.id);
+      return;
+    }
     setTabs([...tabs, entry]);
     setActiveTab(entry.id);
   }
